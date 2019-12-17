@@ -170,3 +170,12 @@ if ( class_exists( 'WooCommerce' ) ) {
  * Require autoload.
  */
 require __DIR__ . '/vendor/autoload.php';
+
+/**
+ * Before content filter.
+ */
+function _s_filter_the_content( $content ) {
+    $greeting = new Foo\Greetings();
+    return $greeting->hello();
+}
+add_filter( 'the_content', '_s_filter_the_content' );
