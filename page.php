@@ -18,6 +18,22 @@ get_header();
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
+        <?php
+            // Traditional way
+            require get_template_directory() . '/foo/greetings-traditional-way.php';
+            $traditionalgreeting = new Greetings();
+            echo $traditionalgreeting->hello();
+
+            // With Composer
+            $greeting = new Foo\Greetings();
+            echo $greeting->hello();
+
+            // or
+            // use Foo\Greetings;
+            // $greeting = new Greetings();
+            // echo $greeting->hello();
+        ?>        
+
 		<?php
 		while ( have_posts() ) :
 			the_post();
